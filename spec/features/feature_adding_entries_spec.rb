@@ -16,6 +16,12 @@ end
 
 feature "Adding new entry" do
   scenario "User submits title of entry" do
+
+      connection = PG.connect(dbname: 'daily_diary_test')
+
+      #test data
+    connection.exec("INSERT INTO entries (id, title) VALUES (1, 'My first entry');")
+
     visit ('/new-entry')
     fill_in 'Title', with: 'My first entry'
     click_button("Add")

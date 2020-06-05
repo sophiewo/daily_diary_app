@@ -16,6 +16,10 @@ describe Entry do
       entries = Entry.all
 
       expect(entries).to include "My first entry"
+      expect(entries).to include "My second entry"
+      expect(entries).to include "My third entry"
+
+
     end
   end
 end

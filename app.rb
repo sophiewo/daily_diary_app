@@ -1,4 +1,5 @@
 require "sinatra"
+require './lib/entry'
 
 class DiaryApp < Sinatra::Base
   enable :sessions
@@ -12,6 +13,7 @@ get '/new-entry' do
 end
 
 post '/added' do
+  @new_entry = Entry.all
  erb :added
 end
 

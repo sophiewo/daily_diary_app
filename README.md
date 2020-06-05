@@ -15,6 +15,10 @@ I want to be able to add a new Diary Entry
   - Form to add diary entry
   - Database with table for new entries
   - Button for new entry
+
+  To impliment this I need to return the title of entry submitted from the form.
+  To satisfy the feature test it will need to return the title on the added page.
+  To satsify the unit test it will need to read the database and return the value as an array/though in my head a hash would be preferable
   
 
 ```
