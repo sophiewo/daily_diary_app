@@ -12,7 +12,7 @@ get '/new-entry' do
 end
 
 post '/added' do
-  erb :added
+ erb :added
 end
 
 run! if app_file == $0
