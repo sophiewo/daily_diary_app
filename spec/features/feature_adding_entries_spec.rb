@@ -15,17 +15,21 @@ feature "navigating to add new entry" do
 end
 
 feature "Adding new entry" do
-  scenario "User submits title of entry" do
+  xscenario "User submits title of entry" do
 
     connection = PG.connect(dbname: 'daily_diary_test')
       #test data
-    connection.exec("INSERT INTO entries (id, title) VALUES (1, 'My second entry');")
+    connection.exec("INSERT INTO entries (id, title, body) VALUES (1, 'My second entry', 'I feel 7/10 today');")
 
     visit ('/new-entry')
     fill_in 'Title', with: 'My second entry'
+    fill_in 'body', with: 'I feel 7/10 today'
+
     click_button("Add")
-    expect(page).to have_content("You've added an entry called: My second entry")
-    find_link('Return to homepage').visible?
+    expect(page).to have_content("My second entry")
+    expect(page).to have_content("I feel 7/10 today")
+
+    
   end
 end
 

@@ -13,13 +13,18 @@ get '/new-entry' do
 end
 
 post '/new-entry/add' do
-  Entry.add(title: params[:title])
+  Entry.add(title: params[:title], body: params[:body])
   redirect '/added'
 end
 
 get '/added' do
-  @last = Entry.last_entry
   erb :added
+end
+
+get '/show-all' do
+  @diary = Entry.all
+  p @diary
+  erb :show_all
 end
 
 run! if app_file == $0

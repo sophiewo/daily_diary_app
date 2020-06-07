@@ -1,0 +1,13 @@
+
+<body>
+  <ol>
+   <h1>Here are all your diary entries<h1>
+  </ol>
+  <ul>
+    
+      <% @diary.each do |entry| %>
+        <h2><%= entry.title %></h2>
+        <p><%= entry.body %></p>
+          <% end %>
+  </ul>
+</body>
