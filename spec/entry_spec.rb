@@ -9,10 +9,6 @@ describe Entry do
       entry = Entry.add(title: "My first entry", body: "feeling :)")
       Entry.add(title: "My second entry", body: "feeling :|")
 
-      # connection.exec("INSERT INTO entries (id, title) VALUES (1, 'My first entry');")
-      # connection.exec("INSERT INTO entries (id, title) VALUES (2, 'My second entry');")
-      # connection.exec("INSERT INTO entries (id, title) VALUES (3, 'My third entry');")
-
       entries = Entry.all
 
       expect(entries.length).to eq 2
@@ -32,15 +28,10 @@ describe Entry do
 
     #not working
     describe '.#last_entry' do
-      xit 'retrives last entry title' do
+      it 'retrives last entry title' do
         Entry.add(title: "Testing a new title_1")
         Entry.add(title: "Testing a new title_2").to_s
         expect(Entry.last_entry).to eq("Testing a new title_2")
       end
-    end
-
-    
+    end 
 end
-
-
-#test for hash straight away?
